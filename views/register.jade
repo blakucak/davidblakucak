@@ -1,0 +1,79 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')
+//if IE 9
+  html.ie9(lang='en')
+// [if !IE] <!
+html(lang='en')
+  // <![endif]
+  // BEGIN HEAD
+  head
+    meta(charset='utf-8')
+    title Login
+    meta(content='width=device-width, initial-scale=1.0', name='viewport')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    link(href='assets/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='assets/bootstrap/css/bootstrap-responsive.min.css', rel='stylesheet')
+    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+    link(href='css/style-responsive.css', rel='stylesheet')
+    link#style_color(href='css/style-default.css', rel='stylesheet')
+    script(language='javascript', src='javascripts/list.js')
+    script(language='javascript', src='javascripts/validasi.js')
+  // END HEAD
+  // BEGIN BODY
+  body.lock
+    .lock-header
+      // BEGIN LOGO
+      a#logo.center(href='index.html')
+        img.center(alt='logo', src='img/logo.png')
+      // END LOGO
+    .login-wrap
+      | #{pesan}
+      form(method='POST', onsubmit='return validateForm()', name='register')
+        .metro.double-size.green
+          .input-append.lock-input
+            input(type='text', name='nim', onkeypress='return isNumberKey(event)', onkeyup='validateNIM();', placeholder='NIM')
+          #Anim.remember-hint
+        .metro.double-size.yellow
+          .input-append.lock-input
+            input(type='text', name='nama', onkeyup='validateNama();', placeholder='Nama')
+          #Anama.remember-hint
+        .metro.double-size.terques.login
+          .input-append.lock-input
+            select(onchange='SelectJurusan();', name='fakultas', required='')
+              option(value='', selected='', disabled='') Fakultas
+              option(value='Teknik') Teknik
+              option(value='Hukum') Hukum
+              option(value='Ekonomi') Ekonomi
+              option(value='Pertanian') Pertanian
+              option(value='FISIB') FISIB
+        .metro.double-size.navy-blue
+          .input-append.lock-input
+            select(name='jurusan', required='')
+              option(value='', selected='', disabled='') Jurusan
+        .metro.double-size.deep-red
+          .input-append.lock-input
+            select(name='kelamin', required='')
+              option(value='', selected='', disabled='') Kelamin
+              option(value='Laki-laki') Laki-laki
+              option(value='Perempuan') Perempuan
+        .metro.double-size.purple
+          .input-append.lock-input
+            input#password(type='password', name='password', onkeyup='validatePassword();', placeholder='Password')
+          .remember-hint
+            input(type='checkbox', onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'")
+            |  Show password
+          #Apassword.remember-hint
+        .metro.double-size
+        .metro.single-size.red
+          button.btn.login-btn(type='submit', name='register')
+            | Register
+            i.icon-pencil
+      .metro.single-size.green
+        form(action='/')
+          button.btn.login-btn(type='submit')
+            | Login
+            i.icon-long-arrow-right
+  // END BODY

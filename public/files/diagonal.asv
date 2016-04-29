@@ -1,0 +1,19 @@
+function hasil = diagonal(citra, batas)
+
+[baris, kolom]= size(citra);
+
+tanda = kolom;
+
+for i=1:baris
+    for j=1:kolom
+        if(j < tanda)
+            citra(i,j) = 255 - citra (i,j);
+        else
+            if(citra(i,j) > batas)
+        end
+    end
+    tanda = tanda - 1;
+end
+
+
+hasil = citra;

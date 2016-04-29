@@ -1,0 +1,18 @@
+function hasil = gauss (ukuran, defiasi)
+
+kons = 1/(2*pi*defiasi^2);
+
+posisiX =  (int8(ukuran/2)-1)*-1 ;
+
+posisiY =  (int8(ukuran/2)-1)*-1 ;
+
+hasil = zeros(ukuran,ukuran); 
+
+
+for i=1:ukuran
+    for j=1:ukuran
+        hasil(i,j) = kons * exp(1)^((posisiX^2+posisiY^2)/(2*defiasi^2));
+        posisiX = posisiX + 1;
+    end
+    posisiY = posisiX + 1;
+end
