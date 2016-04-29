@@ -1,4 +1,4 @@
-var connection = require('../routes/con.js').localConnect();
+var connection = require('../routes/koneksi.js').localConnect();
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
