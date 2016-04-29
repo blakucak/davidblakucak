@@ -1,4 +1,4 @@
-var connection = require('../routes/con.js').localConnect();
+var connection = require('../routes/koneksi.js').localConnect();
 
 module.exports = function SaveRecord(req , res , next){
 
