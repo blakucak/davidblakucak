@@ -1,4 +1,4 @@
-var connection = require('../routes/con.js').localConnect();
+var connection = require('../routes/koneksi.js').localConnect();
 
 module.exports = function cek (req , res , next){
     connection.query('select * from user where nim=? and password=?',[req.body.nim, req.body.password],function(err,rows){
